@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "499190821971",
+    "project_id": "photo-a-day-4833b",
+    "storage_bucket": "photo-a-day-4833b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499190821971:android:0d2f180939c3d787d2c2a6",
+        "android_client_info": {
+          "package_name": "jacques.raul.uv.photoaday"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499190821971-0uj4lv1sals5geecsh7211hcjp8jfg83.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcxFtnbEZO6X-5fwsoYSh161gcejtAc_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499190821971-0uj4lv1sals5geecsh7211hcjp8jfg83.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

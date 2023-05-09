@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">PhotoADay</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"¡Bienvenido de nuevo!"</string>
+    <string name="invalid_username">Usuario incorrecto</string>
+    <string name="invalid_password">La contraseña debe tener al menos 5 caracteres</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="login_iniciar_sesion">Iniciar sesión</string>
+    <string name="login_registrar_usuario">¿No tienes cuenta? Regístrate.</string>
+    <string name="no_results">No se han encontrado resultados.</string>
+
+    <!-- CREAR PERFIL -->
+    <string name="txt_crearperfil">Crea tu perfil</string>
+
+    <string name="txt_nombreperfil">Introduce tu nombre:</string>
+    <string name="txt_nombrehint">Tu nombre</string>
+    <string name="txt_apellidoperfil">Introduce tus apellidos:</string>
+    <string name="txt_apellidohint">Tus apellidos</string>
+    <string name="txt_contrasenaperfil">Introduce tu contraseña:</string>
+    <string name="txt_contrasenahint">Tu contraseña</string>
+    <string name="txt_correperfil">Introduce tu correo:</string>
+    <string name="txt_correohint">Tu correo</string>
+
+    <string name="txt_btn_cancelar">Cancelar</string>
+    <string name="txt_btn_confirmar">Confirmar</string>
+
+
+
+    <!-- LISTA FOTOS -->
+    <string name="lbl_fecha_lista">Fecha: </string>
+    <string name="lbl_ubicacion_lista">Ubicacion: </string>
+    <string name="favButton">Fav button</string>
+
+    <!-- DETALLES FOTOS -->
+    <string name="lbl_fecha">Fecha</string>
+    <string name="lbl_ubicacion">Ubicacion</string>
+
+
+    <!-- PROGRESS BAR -->
+    <string name="txt_cargando">Cargando…</string>
+</resources>
