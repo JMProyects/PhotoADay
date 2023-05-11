@@ -4,19 +4,20 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <TextView
         android:id="@+id/id_txt_recibos2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="32dp"
         android:text="@string/txt_crearperfil"
         android:textColor="#000000"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,7 +29,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/id_txt_recibos2"
-        app:layout_constraintVertical_bias="0.347">
+        app:layout_constraintVertical_bias="0.072">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv"
@@ -102,7 +103,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:autofillHints=""
-                    android:hint="@string/txt_nombrehint"
+                    android:hint="@string/txt_contrasenahint"
                     android:inputType="text"
                     android:minHeight="48dp" />
 
@@ -111,7 +112,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="@string/txt_contrasenaperfil"
+                    android:text="@string/txt_correperfil"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -137,7 +138,7 @@
         android:id="@+id/id_btn_volver_registro"
         android:layout_width="140sp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="180dp"
         android:backgroundTint="#FF6957"
         android:onClick="anteriorVentana"
         android:text="@string/txt_btn_cancelar"
@@ -145,22 +146,22 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintHorizontal_bias="0.206"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/id_btn_registro_siguiente"
         android:layout_width="140sp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="180dp"
         android:backgroundTint="#C7FE80"
-        android:text="@string/txt_btn_confirmar"
         android:onClick="verificarCampos"
+        android:text="@string/txt_btn_confirmar"
         android:textColor="#000"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toEndOf="@+id/id_btn_volver_registro" />
 
 

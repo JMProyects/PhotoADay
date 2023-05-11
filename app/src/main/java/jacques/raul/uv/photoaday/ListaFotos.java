@@ -15,12 +15,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class ListaFotos extends AppCompatActivity {
@@ -28,14 +32,23 @@ public class ListaFotos extends AppCompatActivity {
     private static final int REQUEST_CODE_PERMISSIONS = 10;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private final String[] REQUIRED_PERMISSIONS = new String[]{Manifest.permission.CAMERA};
+
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private FloatingActionButton fabCamara;
     private Uri photoUri;
+
+    private ArrayList<FotoModel> listaFotos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_fotos);
 
+        RecyclerView recyclerView = findViewById(R.id.recyclerview_fotos);
+
+        //SETTEAR LOS DATOS
+
+        ListaFotosAdapter listaFotosAdapter = new ListaFotosAdapter(this, listaFotos);
         fabCamara = findViewById(R.id.id_btn_camara);
 
         fabCamara.setOnClickListener(view -> {
@@ -49,12 +62,14 @@ public class ListaFotos extends AppCompatActivity {
     }
 
     private boolean allPermissionsGranted() {
+
         for (String permission : REQUIRED_PERMISSIONS) {
             if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
                 return false;
             }
         }
         return true;
+
     }
 
     private void openCamera() {
@@ -72,6 +87,13 @@ public class ListaFotos extends AppCompatActivity {
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                //Conseguimos la fecha actual
+                Date fechaAct = new Date();
+
+                //Creamos la clase
+                FotoModel newFoto = new FotoModel("", fechaAct, photoUri);
+
+                //Subir a la base de datos la foto
             }
         }
     }

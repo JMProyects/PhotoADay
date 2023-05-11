@@ -45,7 +45,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView3">
 
                 <TextView
-                    android:id="@+id/detalle_nombre"
+                    android:id="@+id/fechaTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="15dp"
@@ -64,7 +64,7 @@
 
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/ubicacionTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="15dp"
