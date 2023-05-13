@@ -6,13 +6,16 @@ import java.util.Date;
 
 public class FotoModel {
 
-    UsuarioModel usuario;
+    String email;
     String ubicacion;
-    Date fechaFoto;
-    Uri foto;
+    String fechaFoto;
+    String foto;
 
-    public FotoModel(String direccion, Date fechaFoto, Uri foto) {
-        this.ubicacion = direccion;
+    public FotoModel(){}
+
+    public FotoModel(String email, String ubicacion, String fechaFoto, String foto) {
+        this.email = email;
+        this.ubicacion = ubicacion;
         this.fechaFoto = fechaFoto;
         this.foto = foto;
     }
@@ -25,27 +28,27 @@ public class FotoModel {
         this.ubicacion = direccion;
     }
 
-    public Date getFechaFoto() {
+    public String getFechaFoto() {
         return fechaFoto;
     }
 
-    public void setFechaFoto(Date fechaFoto) {
+    public void setFechaFoto(String fechaFoto) {
         this.fechaFoto = fechaFoto;
     }
 
-    public Uri getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(Uri foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
 
-    public UsuarioModel getUsuario() {
-        return usuario;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsuario(UsuarioModel usuario) {
-        this.usuario = usuario;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

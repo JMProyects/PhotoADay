@@ -79,7 +79,7 @@ public class RegistrarUsuario extends AppCompatActivity {
     private void registrarUsuario(String email, String password) {
         Log.d("Auth", "Iniciando registrarUsuario");
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        //showProgressDialog();
+        showProgressDialog();
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()) {
                 Log.d("Auth", "Usuario registrado exitosamente");
@@ -87,6 +87,7 @@ public class RegistrarUsuario extends AppCompatActivity {
                 if (user != null) {
                     // Cargar la imagen de perfil en Firebase Storage y guardar datos en Firestore
                     guardarDatosPersonales(user);
+                    progressDialog.dismiss();
                 } else {
                     Log.e("Auth", "El usuario es nulo después del registro");
                 }

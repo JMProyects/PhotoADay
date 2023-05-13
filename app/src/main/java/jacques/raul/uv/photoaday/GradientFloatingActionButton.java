@@ -34,7 +34,7 @@ public class GradientFloatingActionButton extends FloatingActionButton {
     private void init() {
         mBackgroundPaint = new Paint();
         mBackgroundPaint.setShader(new LinearGradient(0, 0, getWidth(), getHeight(),
-                0xFFFFFFFF, 0xFFEEF3D2, Shader.TileMode.CLAMP));
+                0xFFFFFFFF, 0xFFD4FC78, Shader.TileMode.CLAMP));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class GradientFloatingActionButton extends FloatingActionButton {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         mBackgroundPaint.setShader(new LinearGradient(0, 0, getWidth(), getHeight(),
-                0xFFFFFFFF, 0xFFEEF3D2, Shader.TileMode.CLAMP));
+                0xFFFFFFFF, 0xFFD4FC78, Shader.TileMode.CLAMP));
     }
 }
 

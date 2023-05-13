@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/cerrar_sesion"
+        android:icon="@drawable/logout"
+        android:title="@string/cerrar_sesion_item"
+        app:showAsAction="always" />
+
+    <!-- Elementos del menú -->
+    <item
+        android:id="@+id/fecha_menu_item"
+        android:title="@string/ordenar_fecha" />
+    <item
+        android:id="@+id/ubicacion_menu_item"
+        android:title="@string/ordenar_ubicacion" />
+</menu>

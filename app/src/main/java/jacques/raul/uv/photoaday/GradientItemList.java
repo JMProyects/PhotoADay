@@ -31,7 +31,7 @@ public class GradientItemList extends CardView {
     private void init() {
         mBackgroundPaint = new Paint();
         mBackgroundPaint.setShader(new LinearGradient(0, 0, getWidth(), getHeight(),
-                0xFFEEF3D2, 0xFFFC8884, Shader.TileMode.CLAMP));
+                0xFFEEF3D2, 0xFF8DE8FF, Shader.TileMode.CLAMP));
     }
 
     @Override
@@ -45,7 +45,7 @@ public class GradientItemList extends CardView {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         mBackgroundPaint.setShader(new LinearGradient(0, 0, getWidth(), getHeight(),
-                0xFFEEF3D2, 0xFFFC8884, Shader.TileMode.CLAMP));
+                0xFFEEF3D2, 0xFF8DE8FF, Shader.TileMode.CLAMP));
     }
 }
 
