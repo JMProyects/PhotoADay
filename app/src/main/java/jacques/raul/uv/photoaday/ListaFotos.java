@@ -3,6 +3,11 @@ package jacques.raul.uv.photoaday;
 import static android.content.ContentValues.TAG;
 
 import android.Manifest;
+import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -10,6 +15,7 @@ import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -53,6 +59,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -67,6 +74,7 @@ public class ListaFotos extends AppCompatActivity implements ListaFotosInterface
     private FusedLocationProviderClient fusedLocationClient;
 
     private final FirebaseStorage storage = FirebaseStorage.getInstance();
+    AlarmManager alarmManager;
     private FirebaseAuth auth;
     private Uri photoUri;
     private ListaFotosAdapter listaFotosAdapter;
@@ -74,6 +82,7 @@ public class ListaFotos extends AppCompatActivity implements ListaFotosInterface
     RecyclerView recyclerView;
     TextView noResultsTextView;
     ArrayList<FotoModel> listaFotos;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +118,16 @@ public class ListaFotos extends AppCompatActivity implements ListaFotosInterface
                 ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS);
             }
         });
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("canal_notificaciones", "Mi Canal", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+        //Programar alarma
+        programarAlarmaDiaria();
+
         loadImagesFromFirebase();
     }
 
@@ -352,6 +371,26 @@ public class ListaFotos extends AppCompatActivity implements ListaFotosInterface
                 }
             }
         });
+    }
+    private void programarAlarmaDiaria() {
+
+        if(alarmManager == null) {
+            // Obtén una referencia al sistema de servicios de alarma
+            alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+            // Crea un intento para el BroadcastReceiver
+            Intent intent = new Intent(this, NotificationReceiver.class);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(), 234324243, intent, PendingIntent.FLAG_IMMUTABLE);
+
+            // Configura la hora de la alarma (9 AM)
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(System.currentTimeMillis());
+            calendar.set(Calendar.HOUR_OF_DAY, 9);
+            calendar.set(Calendar.MINUTE, 0);
+            calendar.set(Calendar.SECOND, 0);
+
+            alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+        }
     }
 
     @Override
